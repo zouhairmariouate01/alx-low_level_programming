@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _atoi - convert a string into an integer.
  *
@@ -7,7 +6,6 @@
  *
  * Return: integer.
  */
-
 int _atoi(char *s)
 {
 	int result = 0;
