@@ -43,3 +43,31 @@ char **strtow(char *str)
 	++nwords;
 	pt = (char **) malloc(nwords * sizeof(char *));
 	if (pt == NULL)
+		return (NULL);
+	i = n = 0;
+	while (str[i])
+	{
+		while (str[i] && str[i] == ' ')
+			++i;
+		if (str[i] == '\0')
+			break;
+		beggin = i;
+		while (str[i] && str[i] != ' ')
+			++i;
+		ennd = i;
+		pt[n] = (char *) malloc((ennd - beggin + 1) * sizeof(char));
+		if (pt[n] == NULL)
+		{
+			free(pt[n]);
+			while (n)
+				free(pt[--n]);
+			free(pt);
+			return (NULL);
+		}
+		for (m = 0; m < (ennd - beggin); ++m)
+			pt[n][m] = str[beggin + m];
+		pt[n++][m] = '\0';
+	}
+	pt[n] = NULL;
+	return (pt);
+}
