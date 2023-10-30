@@ -43,4 +43,3 @@ char **strtow(char *str)
 	++nwords;
 	pt = (char **) malloc(nwords * sizeof(char *));
 	if (pt == NULL)
-
