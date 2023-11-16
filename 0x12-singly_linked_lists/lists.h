@@ -5,10 +5,10 @@
 /**
  * struct list_s - singly linked list
  * @str: string - (malloc'ed string)
- * @len: length of the string
- * @next: points to the next node
- * Description: singly linked list node structure
- * for alx
+ * @len: the length of the string
+ * @next: the points to the next node
+ *
+ * Description: the singly linked list node structure
  */
 typedef struct list_s
 {
