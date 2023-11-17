@@ -1,12 +1,12 @@
 #include <stdio.h>
+void printfIntroduction(void)__attribute__((constructor));
+/**
+  * printfIntroduction - Function to print introductory lines.
+  * the function is exucuted.
+  */
 
-void __attribute__((constructor)) start_game(void)
+void printfIntroduction(void)
 {
-    printf("You're beat! and yet, you must allow,\nI bore my house upon my back!\n");
-}
-
-int main(void)
-{
-    printf("(A tortoise, having pretty good sense of a hare's nature, challenges one to a race.)\n");
-    return (0);
+	printf("You're beat! and yet, you must allow,\n");
+	printf("I bore my house upon my back!\n");
 }
