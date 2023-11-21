@@ -1,45 +1,46 @@
 #include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * insert_nodeint_at_index - Inserts a new node at a given position.
- * @head: A pointer to the pointer to the head of the linked list.
- * @idx: The index of the list where the new node should be added (starting at 0).
- * @n: The data to be added to the new node.
+ * insert_nodeint_at_index - the inserts a new node at a given position.
+ * @head: the pointer to the head of the list.
+ * @idx: the index of the list where the new node should be added.
+ * @n: data for the new node.
  *
- * Returns: The address of the new node, or NULL if it failed.
+ * Return: the pointer to the new node, or NULL if it failed.
  */
+
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-    listint_t *new_node, *current = *head;
-    unsigned int i;
+	listint_t *new_noode, *prev_noode;
+	unsigned int i;
 
-    if (head == NULL)
-        return NULL;
+	if (head == NULL)
+		return (NULL);
+	new_noode = malloc(sizeof(*new_noode));
+	if (new_noode == NULL)
+		return (NULL);
+	new_noode->n = n;
 
-    new_node = malloc(sizeof(listint_t));
-    if (new_node == NULL)
-        return NULL;
+	if (idx == 0)
+	{
+		new_noode->next = *head;
+		*head = new_noode;
+		return (new_noode);
+	}
+	prev_noode = *head;
+	for (i = 0; i < idx - 1 && prev_noode != NULL; i++)
+		prev_noode = prev_noode->next;
 
-    new_node->n = n;
+	if (prev_noode == NULL)
+	{
+		free(new_noode);
+		return (NULL);
+	}
 
-    if (idx == 0)
-    {
-        new_node->next = *head;
-        *head = new_node;
-        return new_node;
-    }
+	new_noode->next = prev_noode->next;
+	prev_noode->next = new_noode;
 
-    for (i = 0; i < idx - 1 && current != NULL; i++)
-        current = current->next;
-
-    if (i != idx - 1)
-    {
-        free(new_node);
-        return NULL;
-    }
-
-    new_node->next = current->next;
-    current->next = new_node;
-
-    return new_node;
+	return (new_noode);
 }
