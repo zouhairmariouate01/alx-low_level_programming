@@ -1,3 +1,3 @@
 #!/bin/bash
-wget -O /tmp/win.so https://github.com/zouhairmariouate01/holbertonschool-low_level_programming/raw/master/0x17-dynamic_libraries/win.so
-export LD_PRELOAD=/tmp/win.so
+wget -q -P /tmp https://github.com/zouhairmariouate01/alx-low_level_programming/raw/main/0x18-dynamic_libraries/libgiga.so
+export LD_PRELOAD=/tmp/libgiga.so
